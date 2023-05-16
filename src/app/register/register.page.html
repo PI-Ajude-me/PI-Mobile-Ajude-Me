@@ -1,0 +1,20 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <img src="../../assets/logoAjudeMe.svg" alt="logo ajude me">
+  </ion-header>
+  <div class="container-auth">
+    <ion-radio-group value="custom-checked">
+      <ion-radio value="custom-checked" aria-label="Custom checkbox that is checked">CPF</ion-radio>
+      <ion-radio class="c-cnpj" value="custom" aria-label="Custom checkbox">CNPJ</ion-radio>
+    </ion-radio-group>
+    <ion-input label="Nome" type="text" label-placement="floating" fill="outline" placeholder="Digite seu nome"></ion-input>
+    <!--<ion-input label="Razão Social" type="text" label-placement="floating" fill="outline" placeholder="Digite o nome da empresa"></ion-input>-->
+    <ion-input label="CPF" type="tel" label-placement="floating" fill="outline" placeholder="000.000.000-00"></ion-input>
+    <!--<ion-input label="CNPJ" type="tel" label-placement="floating" fill="outline" placeholder=""></ion-input>-->
+    <ion-input label="Telefone" type="tel" label-placement="floating" fill="outline" placeholder="(00) 00000-0000"></ion-input>
+    <ion-input label="E-mail" type="email" label-placement="floating" fill="outline" placeholder="exemplo@mail.com"></ion-input>
+    <ion-input label="Senha" type="password" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    <ion-button (click)="goDash()">Cadastrar</ion-button>
+    <h6>Já possui cadastro? <span (click)="goLogin()">Entre aqui</span></h6>
+  </div>
+</ion-content>

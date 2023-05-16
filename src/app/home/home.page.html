@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div id="container">
+    <div class="logohome">
+      <img src="../../assets/LogoHome.svg">
+    </div>
+    <p>Seja bem-vindo ao nosso app!</p>
+    <br>
+    <div class="infohome">
+      <ion-button id="open-loading" (click)="goLogin()">Acessar</ion-button>
+      <ion-loading class="custom-loading" trigger="open-loading" message="Espere 1 segundo..." [duration]="1000"></ion-loading>
+    </div>
+  </div>
+</ion-content>

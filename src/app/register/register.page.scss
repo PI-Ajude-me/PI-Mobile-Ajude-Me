@@ -1,0 +1,30 @@
+.container-auth {margin: 5% 10% 10% 10%;}
+.container-auth ion-input {margin: 1rem 0 0 0;}
+.container-auth ion-button {width: 100%; margin: 10% 0 0 0;}
+ion-header img {padding: 20% 30% 5% 30%;}
+h6 {font-size: .75rem; text-align: center;}
+h6 span {color: #3B82F6;}
+
+ion-radio {
+    --border-radius: 50%;
+    --inner-border-radius: 50%;
+  
+    --color: #ddd;
+    --color-checked: #3B82F6;
+  }
+  
+  ion-radio.ios::part(container) {
+    width: 20px;
+    height: 20px;
+  
+    border: 2px solid #ddd;
+    border-radius: 50%;
+  }
+  
+  .radio-checked.ios::part(container) {
+    border-color: #3B82F6;
+  }
+
+ion-radio-group .c-cnpj {
+    margin: 0 0 0 1rem;
+}
