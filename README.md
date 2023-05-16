@@ -5,3 +5,5 @@ Ionic CLI 7.1.1
 Angular CLI: 16.0.1       
 Node: 18.16.0
 Package Manager: npm 9.6.5
+
+Diretório: app-ajude-mobile.
