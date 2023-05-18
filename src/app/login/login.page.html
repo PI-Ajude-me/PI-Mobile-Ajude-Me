@@ -3,8 +3,8 @@
     <img src="../../assets/logoAjudeMe.svg" alt="logo ajude me">
   </ion-header>
   <div class="container-auth">
-    <ion-input label="Usuário" type="email" label-placement="floating" fill="outline" placeholder="exemplo@mail.com"></ion-input>
-    <ion-input label="Senha" type="password" label-placement="floating" fill="outline" placeholder="***"></ion-input>
+    <ion-input label="Usuário" type="email" name="usuario"   [(ngModel)]="usuario" label-placement="floating" fill="outline" placeholder="exemplo@mail.com" required></ion-input>
+    <ion-input label="Senha" type="password" name="senha"   [(ngModel)]="senha" label-placement="floating" fill="outline" placeholder="***" required></ion-input>
     <ion-button (click)="goDash()">Entrar</ion-button>
     <h6>Não possui cadastro? <span (click)="goRegister()">Cadastre-se aqui</span></h6>
   </div>

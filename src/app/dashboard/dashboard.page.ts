@@ -14,6 +14,7 @@ export class DashboardPage implements OnInit {
   }
 
   goHome(){
+    localStorage.removeItem("pi_ajuda_me_access_token");
     this.router.navigateByUrl('/home') 
   }
 
