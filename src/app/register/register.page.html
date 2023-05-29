@@ -3,18 +3,22 @@
     <img src="../../assets/logoAjudeMe.svg" alt="logo ajude me"> 
   </ion-header>
   <div class="container-auth">
-    <ion-radio-group value="custom-checked">
-      <ion-radio value="custom-checked" aria-label="Custom checkbox that is checked">CPF</ion-radio>
-      <ion-radio class="c-cnpj" value="custom" aria-label="Custom checkbox">CNPJ</ion-radio>
+    <ion-radio-group value="custom-checked" [(ngModel)]="tipodecadastro">
+      <ion-radio name="tipocadastro" value="CPF" aria-label="Custom checkbox that is checked">CPF</ion-radio> 
     </ion-radio-group>
-    <!-- <ion-radio-group value="custom-checked">
-      <ion-radio name="tipocadastro" [(ngModel)]="tipodecadastro" value="CPF" aria-label="Custom checkbox that is checked">CPF</ion-radio> 
-      <ion-radio name="tipocadastro" [(ngModel)]="tipodecadastro" value="CNPJ" aria-label="Custom checkbox">CNPJ</ion-radio>
-    </ion-radio-group> -->
-    <ion-input label="Nome" type="text" name="nome" [(ngModel)]="pessoafisica.nome" [(ngModel)]="pessoajuridica.nome" label-placement="floating" fill="outline" placeholder="Digite seu nome" required></ion-input>
-    <!--<ion-input label="Razão Social" type="text" label-placement="floating" fill="outline" placeholder="Digite o nome da empresa"></ion-input>-->
-    <ion-input label="CPF" type="tel" name="cpf" [(ngModel)]="pessoafisica.cpf" label-placement="floating" fill="outline"  maxlength="14"  placeholder="000.000.000-00"></ion-input>
-    <!--<ion-input label="CNPJ" type="tel" label-placement="floating" fill="outline" placeholder=""></ion-input>-->
+    <ion-radio-group value="" [(ngModel)]="tipodecadastro" class="r-cnpj">
+      <ion-radio name="tipocadastro" value="CNPJ" aria-label="Custom checkbox">CNPJ</ion-radio>
+    </ion-radio-group>
+    <!--Pessoa Física-->
+    <div *ngIf="tipodecadastro === 'CPF'">
+      <ion-input label="Nome" type="text" name="nome" [(ngModel)]="pessoafisica.nome" [(ngModel)]="pessoajuridica.nome" label-placement="floating" fill="outline" placeholder="Digite seu nome" required></ion-input> 
+      <ion-input label="CPF" type="tel" name="cpf" [(ngModel)]="pessoafisica.cpf" label-placement="floating" fill="outline"  maxlength="14"  placeholder="000.000.000-00"></ion-input>
+    </div>
+    <!--Pessoa Juridica-->
+    <div *ngIf="tipodecadastro === 'CNPJ'">
+      <ion-input label="Razão Social" type="text" name="razaosocial" label-placement="floating" fill="outline" placeholder="Digite o nome da empresa" required></ion-input>
+      <ion-input label="CNPJ" type="tel" name="cpnj" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    </div>
     <ion-input label="Telefone" type="tel" name="telefone" [(ngModel)]="pessoafisica.telefone" [(ngModel)]="pessoajuridica.telefone" maxlength="11" label-placement="floating" fill="outline" placeholder="(00) 00000-0000" required></ion-input>
     <ion-input label="E-mail" type="email" name="email" [(ngModel)]="pessoafisica.email" [(ngModel)]="pessoajuridica.email"  label-placement="floating"  mask="(99) 9999-9999"fill="outline" placeholder="exemplo@mail.com" required></ion-input>
     <ion-input label="Senha" type="password" name="senha" [(ngModel)]="pessoafisica.senha" [(ngModel)]="pessoajuridica.senha" label-placement="floating" fill="outline" placeholder="" required></ion-input>

@@ -4,6 +4,7 @@ import { PessoaCategoria } from 'src/model/enums/pessoacategoria';
 import { PessoaFisica, PessoaJurica } from 'src/model/pessoa';
 import { PessoaService } from 'src/service/pessoa.service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -19,7 +20,6 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
 
   }
-
 
   goDash() {
     if (this.tipodecadastro === 'CPF') {
@@ -42,7 +42,9 @@ export class RegisterPage implements OnInit {
         this.router.navigateByUrl('/register')
       });
     }
+
   }
+
 
   goLogin() {
     this.router.navigateByUrl('/login')
