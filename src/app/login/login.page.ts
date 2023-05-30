@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
         this.email = r.login;
         if (token != null&& r.tipo!) {
           localStorage.setItem("pi_ajuda_me_access_token", token);
-          this.router.navigateByUrl('/dashboard') 
+          this.router.navigateByUrl('/dashboard/home-tab') 
         }
       }); 
     }else{
@@ -41,5 +41,7 @@ export class LoginPage implements OnInit {
   goRegister(){
     this.router.navigateByUrl('/register') 
   }
+
+
 
 }

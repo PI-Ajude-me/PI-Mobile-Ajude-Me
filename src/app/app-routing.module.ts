@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from 'src/shared/auth-guard-service';
 
+
+
 const routes: Routes = [
   {
     path: 'home',
@@ -24,6 +26,23 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'home-tab',
+    loadChildren: () => import('./dashboard/home-tab/home-tab.module').then( m => m.HomeTabPageModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./dashboard/admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
+    path: 'hanking',
+    loadChildren: () => import('./dashboard/hanking/hanking.module').then( m => m.HankingPageModule)
+  },
+  {
+    path: 'duvida',
+    loadChildren: () => import('./dashboard/duvida/duvida.module').then( m => m.DuvidaPageModule)
+  },
+
 ];
 
 @NgModule({

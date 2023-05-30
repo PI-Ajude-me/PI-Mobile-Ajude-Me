@@ -18,4 +18,25 @@ export class DashboardPage implements OnInit {
     this.router.navigateByUrl('/home') 
   }
 
+  goHomeTab(){
+    this.router.navigateByUrl('/dashboard/home-tab')
+  }
+
+  public alertButtons = [
+    {
+      text: 'Cancelar',
+      cssClass: 'alert-button-cancel',
+      handler: () => {
+        this.goHomeTab();
+      },
+    },
+    {
+      text: 'Sair',
+      cssClass: 'alert-button-confirm',
+      handler: () => {
+        this.goHome();
+      },
+    },
+  ];
+
 }

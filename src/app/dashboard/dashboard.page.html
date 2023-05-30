@@ -1,28 +1,27 @@
-<ion-app>
-  <ion-menu contentId="main-content">
-    <ion-header>
-      <ion-toolbar color="tertiary">
-        <ion-title>Ajude-Me</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <ion-footer>
-        <h6 (click)="goHome()">Sair</h6>
-      </ion-footer>
-    </ion-content>
-  </ion-menu>
-  <div class="ion-page" id="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>
-          <img src="../../assets/logoAjudeMe.svg" alt="logo ajude me">
-        </ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding"> Ficamos felizes que seja um voluntário! </ion-content>
-<ion-text>ssdd</ion-text>
-  </div>
-</ion-app>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab='home-tab'>
+      <ion-icon name="home"></ion-icon>
+      Home
+    </ion-tab-button>
+    <ion-tab-button tab="hanking">
+      <ion-icon name="star"></ion-icon>
+      Hanking
+    </ion-tab-button>
+    <ion-tab-button tab="admin">
+      <ion-icon name="person-circle"></ion-icon>
+      Admin
+    </ion-tab-button>
+    <ion-tab-button tab="duvida">
+      <ion-icon name="help-circle"></ion-icon>
+      Duvida
+    </ion-tab-button>
+
+    <ion-tab-button id="present-alert" >
+      <ion-alert trigger="present-alert" class="custom-alert" header="Tem certeza?" [buttons]="alertButtons"></ion-alert>
+      <ion-icon name="exit"></ion-icon>
+      Sair
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
