@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-duvida',
@@ -6,11 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./duvida.page.scss'],
 })
 export class DuvidaPage implements OnInit {
-  router: any;
 
-  constructor() { }
+
+  constructor(private actionSheetCtrl: ActionSheetController) {}
 
   ngOnInit() {
+
   }
 
+  canDismiss = async () => {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Tem certeza?',
+      buttons: [
+        {
+          text: 'Sim',
+          role: 'confirmar',
+        },
+        {
+          text: 'Não',
+          role: 'Cancelar',
+        },
+      ],
+    });
+
+    actionSheet.present();
+
+    const { role } = await actionSheet.onWillDismiss();
+
+    return role === 'confirmar';
+  };
 }

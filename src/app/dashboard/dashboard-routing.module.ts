@@ -19,12 +19,12 @@ const routes: Routes = [
         loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
       },
       {
-        path: 'hanking',
-        loadChildren: () => import('./hanking/hanking.module').then( m => m.HankingPageModule)
-      },
-      {
         path: 'duvida',
         loadChildren: () => import('./duvida/duvida.module').then( m => m.DuvidaPageModule)
+      },
+      {
+        path: 'ranking',
+        loadChildren: () => import('./ranking/ranking.module').then( m => m.RankingPageModule)
       },
     ],
   },

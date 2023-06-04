@@ -24,14 +24,14 @@ export class DashboardPage implements OnInit {
 
   public alertButtons = [
     {
-      text: 'Cancelar',
+      text: 'Não',
       cssClass: 'alert-button-cancel',
       handler: () => {
         this.goHomeTab();
       },
     },
     {
-      text: 'Sair',
+      text: 'Sim',
       cssClass: 'alert-button-confirm',
       handler: () => {
         this.goHome();

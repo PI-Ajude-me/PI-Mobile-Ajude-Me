@@ -1,0 +1,15 @@
+
+  <ion-header id="img-card">
+  </ion-header>
+  <ion-content [fullscreen]="true">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Ficamos felizes que seja um voluntário!</ion-card-title>
+        <ion-card-subtitle>Por favor, digite o número identificador para realizar o cadastro e participar do projeto.</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input label="Nº Identificador" type="text" name="usuario" label-placement="floating" fill="outline" placeholder="Digite o código" required></ion-input>
+        <ion-button (click)="goRegister()">Entrar</ion-button>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

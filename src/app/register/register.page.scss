@@ -1,30 +1,15 @@
 .container-auth {margin: 5% 10% 10% 10%;}
 .container-auth ion-input {margin: 1rem 0 0 0;}
-.container-auth ion-button {width: 100%; margin: 10% 0 0 0;}
-ion-header img {padding: 20% 30% 5% 30%;}
+.container-auth ion-button {width: 100%; margin: 5% 0 0 0; height: 3.5rem; font-weight: bold;}
+ion-header img {width: 10rem;}
+ion-header {padding: 10% 30% 5% 30%; background-color: var(--ion-color-primary-tint);}
 h6 {font-size: .75rem; text-align: center;}
 h6 span {color: #3B82F6;}
-
-ion-radio {
-    --border-radius: 50%;
-    --inner-border-radius: 50%;
-  
-    --color: #ddd;
-    --color-checked: #3B82F6;
-  }
-  
-  ion-radio.ios::part(container) {
-    width: 20px;
-    height: 20px;
-  
-    border: 2px solid #ddd;
-    border-radius: 50%;
-  }
-  
-  .radio-checked.ios::part(container) {
-    border-color: #3B82F6;
-  }
-
- .r-cnpj {
-   margin: 0 0 0 1.5rem;
+.abstract-hands {
+    background-image: url('../../assets/hands.svg');
+    height: 4rem;
+    width: 100%;
+    background-repeat: repeat;
+    background-position-x: right;
 }
+ion-footer {position: initial;}

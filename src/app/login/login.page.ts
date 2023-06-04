@@ -39,9 +39,11 @@ export class LoginPage implements OnInit {
   }
 
   goRegister(){
-    this.router.navigateByUrl('/register') 
+    this.router.navigateByUrl('/register'); 
   }
 
-
+  goAcesso(){
+    this.router.navigateByUrl('/acesso'); 
+  }
 
 }

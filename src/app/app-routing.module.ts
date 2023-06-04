@@ -3,7 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from 'src/shared/auth-guard-service';
 
 
-
 const routes: Routes = [
   {
     path: 'home',
@@ -35,12 +34,12 @@ const routes: Routes = [
     loadChildren: () => import('./dashboard/admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'hanking',
-    loadChildren: () => import('./dashboard/hanking/hanking.module').then( m => m.HankingPageModule)
-  },
-  {
     path: 'duvida',
     loadChildren: () => import('./dashboard/duvida/duvida.module').then( m => m.DuvidaPageModule)
+  },
+  {
+    path: 'acesso',
+    loadChildren: () => import('./acesso/acesso.module').then( m => m.AcessoPageModule)
   },
 
 ];
