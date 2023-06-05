@@ -8,6 +8,7 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
 import { RouterModule } from '@angular/router';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 @NgModule({
@@ -18,5 +19,6 @@ import { RouterModule } from '@angular/router';
     DashboardPageRoutingModule,
   ],
   declarations: [DashboardPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardPageModule {}

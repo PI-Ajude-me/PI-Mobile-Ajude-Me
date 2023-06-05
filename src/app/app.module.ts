@@ -10,6 +10,7 @@ import { AuthGuardService } from 'src/shared/auth-guard-service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorAuth } from 'src/shared/http-interceptor';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(),AppRoutingModule, FormsModule,HttpClientModule],

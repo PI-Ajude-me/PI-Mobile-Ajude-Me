@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomeTabPageRoutingModule } from './home-tab-routing.module';
 
 import { HomeTabPage } from './home-tab.page';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { HomeTabPage } from './home-tab.page';
     IonicModule,
     HomeTabPageRoutingModule
   ],
-  declarations: [HomeTabPage]
+  declarations: [HomeTabPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeTabPageModule {}
