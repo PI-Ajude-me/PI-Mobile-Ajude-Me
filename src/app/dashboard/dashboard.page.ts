@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,35 +7,9 @@ import { Router } from '@angular/router';
 })
 export class DashboardPage implements OnInit {
 
-  constructor(public router:Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
-  goHome(){
-    localStorage.removeItem("pi_ajuda_me_access_token");
-    this.router.navigateByUrl('/home') 
-  }
-
-  goHomeTab(){
-    this.router.navigateByUrl('/dashboard/home-tab')
-  }
-
-  public alertButtons = [
-    {
-      text: 'Não',
-      cssClass: 'alert-button-cancel',
-      handler: () => {
-        this.goHomeTab();
-      },
-    },
-    {
-      text: 'Sim',
-      cssClass: 'alert-button-confirm',
-      handler: () => {
-        this.goHome();
-      },
-    },
-  ];
 
 }

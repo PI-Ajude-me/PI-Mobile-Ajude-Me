@@ -1,27 +1,34 @@
-
 <ion-tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab='home-tab'>
-      <ion-icon name="home"></ion-icon>
+      <ion-icon name="home-outline"></ion-icon>
       Início
     </ion-tab-button>
-    <ion-tab-button tab="ranking">
+    <!--
+          <ion-tab-button tab="ranking">
       <ion-icon name="star"></ion-icon>
       Ranking
     </ion-tab-button>
+    -->
     <ion-tab-button tab="admin">
-      <ion-icon name="person-circle"></ion-icon>
-      Admin
+      <ion-icon name="folder-open-outline"></ion-icon>
+      Pedidos
+    </ion-tab-button>
+    <ion-tab-button tab="eventos">
+      <ion-icon name="megaphone-outline"></ion-icon>
+      Eventos
     </ion-tab-button>
     <ion-tab-button tab="duvida">
-      <ion-icon name="help-circle"></ion-icon>
+      <ion-icon name="help-outline"></ion-icon>
       Duvida
     </ion-tab-button>
 
-    <ion-tab-button id="present-alert" >
+    <!--
+      <ion-tab-button id="present-alert" >
       <ion-alert trigger="present-alert" class="custom-alert" header="Realmente deseja sair?" [buttons]="alertButtons"></ion-alert>
       <ion-icon name="exit"></ion-icon>
       Sair
     </ion-tab-button>
+    -->
   </ion-tab-bar>
 </ion-tabs>

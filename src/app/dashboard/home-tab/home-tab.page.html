@@ -1,40 +1,75 @@
-<ion-header>
-    <ion-img src="../../../assets/logoRoxa.svg" alt=""></ion-img>
-</ion-header>
-<ion-content class="ion-padding">
-
-<swiper-container [modules]="swiperModules"> 
-  <swiper-slide>
-    <ion-card>
-    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-    <ion-card-header>
-      <ion-card-title></ion-card-title>
-      <ion-card-subtitle>Bem-vindo, Voluntário</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      Ficamos felizes que tenha escolhido ajudar nosso projeto. 
-    </ion-card-content>
-    <ion-card-footer>
-      <ion-icon name="arrow-forward-outline"></ion-icon>
-    </ion-card-footer>
-    </ion-card>
-  </swiper-slide>
-  <swiper-slide>
-    <ion-card>
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-      <ion-card-header>
-        <ion-card-title></ion-card-title>
-        <ion-card-subtitle>Bem-vindo, Voluntário</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        Ficamos felizes que tenha escolhido ajudar nosso projeto. 
-      </ion-card-content>
-      <ion-card-footer>
-        <ion-icon name="arrow-back-outline"></ion-icon>
-      </ion-card-footer>
-      </ion-card>
-  </swiper-slide>
-</swiper-container>
-
+<ion-content class="ion-padding">  
+  <ion-menu contentId="main-content">
+    <ion-header class="menu-logo">
+      <ion-img src="../../../assets/logoBranca.svg" alt=""></ion-img>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-button id="open-loading" (click)="goHome()"><ion-icon name="exit-outline"></ion-icon> Sair</ion-button>
+    </ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-img src="../../../assets/logoAzul.svg" alt=""></ion-img>
+      <div>
+        <ion-buttons slot="start">
+          <ion-menu-button><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-menu-button>
+        </ion-buttons>
+      </div>
+    </ion-header>
+    <ion-content class="ion-padding"> 
+      <swiper-container [modules]="swiperModules"> 
+      <swiper-slide>
+        <ion-card>
+        <img alt="Silhouette of mountains" src="../../../assets/equipe.svg" />
+        <ion-card-header>
+          <ion-card-title></ion-card-title>
+          <ion-card-subtitle>Bem-vindo, Voluntário!</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="item-info">
+            <p>Criamos esse espaço para que você possa nos ajudar a ajudar outras pessoas. O app ajude-me está aqui para:</p>
+            <div class="itens">
+              <p><ion-icon name="heart-outline"></ion-icon> Verificação de pedidos e seus erros.</p>
+              <p><ion-icon name="heart-outline"></ion-icon> Organização de eventos presencias.</p>
+            </div>
+          </div>
+        </ion-card-content>
+        <ion-card-footer>
+          <ion-icon name="return-down-forward"></ion-icon>
+        </ion-card-footer>
+        </ion-card>
+      </swiper-slide>
+      <swiper-slide>
+        <ion-card>
+          <img alt="Silhouette of mountains" src="../../../assets/equipe01.webp" />
+          <ion-card-header>
+            <ion-card-title></ion-card-title>
+            <ion-card-subtitle>Continuando...</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="item-info">
+              <p>O que pedimos para cada voluntário é a dedicação de seu tempo para nos auxiliar a continuar esse projeto:</p>
+              <div class="itens">
+                <p><ion-icon name="heart-outline"></ion-icon> Pedidos: Excluir/ Alterar.</p>
+                <p><ion-icon name="heart-outline"></ion-icon> Eventos: Participar/ Divulgar.</p>
+              </div>
+            </div>
+          </ion-card-content>
+          <ion-card-footer>
+            <ion-icon name="return-down-back"></ion-icon>
+          </ion-card-footer>
+          </ion-card>
+      </swiper-slide>
+      </swiper-container> 
+    <div class="calendario">
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+    </div>
+  </ion-content>
+  </div>
+    
 </ion-content>
-

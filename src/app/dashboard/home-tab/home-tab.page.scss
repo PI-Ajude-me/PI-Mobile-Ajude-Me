@@ -1,7 +1,28 @@
-ion-header {padding: 1rem; background-color: #7044ff18; opacity: .75; display: flex;}
-ion-title {color: #7044FF; font-weight: bold; text-align: left;}
-ion-img {width: 6rem;}
-
+ion-header {padding: .5rem; opacity: .75;}
+.ios ion-header {padding: 1rem; opacity: .75; box-shadow: 8px 0px 10px rgba(0, 0, 0, 0.377);}
+ion-img {width: 6rem; margin: 0 0 0 1rem;}
+ion-button {--background: #fff; --box-shadow: none; color: #000000b4;}
+ion-button:hover {color: #3880ff;}
+ion-button ion-icon {margin: 0 .5rem 0 0;}
+.menu-logo {background-color: var(--ion-color-primary, #3880ff); padding: 1rem .5rem; margin: 0;} 
+.menu-logo ion-img {width: 7rem;}
+.ion-page ion-header { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.calendario {padding: .5rem 0 0 0;}
+.item-info {text-align: justify;}
+.itens {padding: .5rem 0 .5rem .95rem;}
+.itens ion-icon {margin: 0 .2rem 0 0; color: #3880ff; opacity: .85; font-size: .75rem;}
+ion-datetime-button {--background: #fff;}
+ion-card-footer ion-icon {font-size: 1.2rem;}
+ion-card-footer {padding: 0;}
+ion-card-content {padding: 0 1rem;}
+ion-card-content p {color: rgba(128, 128, 128, 0.815);}
+ion-card-subtitle {font-size: 1rem; font-weight: bold; color: rgba(128, 128, 128, 0.815);}
+ion-card-header {padding: .5rem 0 1rem 0;}
+ion-datetime-button {opacity: .65;}
 swiper-container {
     --swiper-pagination-bullet-inactive-color: var(--ion-color-step-200, #cccccc);
     --swiper-pagination-color: var(--ion-color-primary, #3880ff);
@@ -34,3 +55,5 @@ swiper-container {
     height: auto;
     max-height: 100%;
   }
+
+  

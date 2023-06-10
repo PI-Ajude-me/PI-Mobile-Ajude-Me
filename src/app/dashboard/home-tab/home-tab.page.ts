@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicSlides } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home-tab',
@@ -8,10 +10,15 @@ import { IonicSlides } from '@ionic/angular';
 })
 export class HomeTabPage implements OnInit {
 
+  constructor(public router:Router) { }
+
   swiperModules = [IonicSlides];
-  constructor() { }
 
   ngOnInit() {
+  }
+
+  goHome(){
+    this.router.navigateByUrl('/home'); 
   }
 
 }

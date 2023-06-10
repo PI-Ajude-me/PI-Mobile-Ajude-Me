@@ -1,8 +1,13 @@
-ion-header {padding: 1rem; background-color: #7044ff18; opacity: .75; display: flex;}
-ion-title {color: #7044FF; font-weight: bold; text-align: left;}
-ion-img {width: 6rem; margin-right: 1rem;}
-.sc-ion-searchbar-md-h { padding: 0; --background: #7044ff18; color: #7044FF; --icon-color: #7044FF; opacity: .85; --box-shadow: none;}
-
+ion-header {padding: 1.1rem 1.48rem; opacity: .75;}
+ion-img {width: 6rem;}
+.menu-header {display: flex; align-items: center;}
+.bt-sair { padding-left: 12rem;}
+.bt-sair ion-icon {opacity: .75;}
+ion-header { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 ion-fab-button::part(native) {
     background-color: var(--ion-color-primary-tint);
     border-radius: 15px;
