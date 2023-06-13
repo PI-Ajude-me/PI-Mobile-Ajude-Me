@@ -1,8 +1,133 @@
 <ion-header>
     <ion-img src="../../../assets/logoAzul.svg" alt=""></ion-img>
     <div>
+        <ion-title>Eventos</ion-title>
     </div>
 </ion-header>
-<ion-content [fullscreen]="true">
- 
+<!--
+    <ion-content>
+    <ion-searchbar placeholder="Pesquisar">
+
+    </ion-searchbar>
+    <ion-list>
+        <ion-item-sliding>
+            <ion-item>
+                <ion-label>Título</ion-label>
+                <ion-label>Descrição</ion-label>
+            </ion-item>
+            <br>
+            <ion-item-option side="start">
+                <ion-item-option class="editar">
+                    <ion-button>
+                        Editar <ion-icon slot="icon-only" name="create"></ion-icon>
+                    </ion-button>
+                </ion-item-option>
+                <ion-item-option class="excluir">
+                    <ion-button>
+                        Excluir <ion-icon slot="icon-only" name="trash"></ion-icon>
+                    </ion-button>
+                    
+                </ion-item-option>
+            </ion-item-option>
+        </ion-item-sliding>
+    </ion-list>
+    
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+
+    
+</ion-content>
+-->
+
+
+<ion-content class="modal1">
+    <img src="../../../assets/eventos.svg">
+    <!--
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand"></a>
+        </nav>
+    -->
+
+    <form class="form-inline">
+        <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#eventosModal" (click)="onAddClick()">Criar Evento</button>
+    </form>
+    
+  <!-- Modal -->
+  <div class="modal fade" id="eventosModal"  data-backdrop="false" tabindex="" role="dialog" aria-labelledby="eventosModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="eventosModalLabel">Informativo de Eventos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="eventosForm">
+                <div class="mb-3">
+                    <label  class="form-label">Título</label>
+                    <input type="text" class="form-control"  placeholder="nome do evento" formControlName="tituloevento">
+                  </div>
+    
+                  <div class="mb-3">
+                    <label  class="form-label">Descrição</label>
+                    <input type="text" class="form-control"  placeholder="sobre o evento" formControlName="descricaoevento">
+                  </div>
+    
+                  
+                  <div class="mb-3">
+                    <label  class="form-label">Contato</label>
+                    <input type="number" class="form-control"  placeholder="telefone" formControlName="contatoevento">
+                  </div>
+    
+                  
+                  <div class="mb-3">
+                    <label  class="form-label">Local</label>
+                    <input type="text" class="form-control"  placeholder="endereço" formControlName="localevento">
+                  </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close" (click)="reset()">Fechar</button>
+          <button type="button" class="btn btn-secondary" (click)="updateEventosDetail()" *ngIf="showUpdateBtn">Atualizar</button>
+          <button type="button" class="btn btn-primary" (click)="postEventosDetails()" *ngIf="showAddBtn">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<ion-content>
+
+    <div class="container mt-2">
+        <table class="table table-hover table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Contato</th>
+                    <th>Local</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of eventosDetails">
+                    <td>{{item.tituloevento}}</td>
+                    <td>{{item.descricaoevento}}</td>
+                    <td>{{item.contatoevento}}</td>
+                    <td>{{item.localevento}}</td>
+                    <td>
+                       
+                        <button (click)="edit(item)" class="btn btn-outline-warning my-2 my-sm-0" data-toggle="modal" data-target="#eventosModal">Editar</button>
+                        <button (click)="deleteEventosDetail(item.id)" class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+     </div> 
+
+</ion-content>
+  
 </ion-content>

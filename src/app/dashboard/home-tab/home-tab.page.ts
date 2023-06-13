@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonicSlides } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { DashboardPage } from '../dashboard.page';
+import { HomePage } from 'src/app/home/home.page';
 
 
 @Component({
@@ -18,7 +20,7 @@ export class HomeTabPage implements OnInit {
   }
 
   goHome(){
-    this.router.navigateByUrl('/home'); 
+    this.router.navigateByUrl('/home');
   }
 
 }

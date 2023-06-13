@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from 'src/shared/auth-guard-service';
+import { EventosPageModule } from './dashboard/eventos/eventos.module';
 
 
 const routes: Routes = [
@@ -41,7 +42,14 @@ const routes: Routes = [
     path: 'acesso',
     loadChildren: () => import('./acesso/acesso.module').then( m => m.AcessoPageModule)
   },
+  {
+    path: 'eventos',
+    loadChildren: () => import('./dashboard/eventos/eventos.module').then( m => m.EventosPageModule)
+  },
 
+/*
+  {path:'', component: StudentInformationComponent},
+  {path:'student-info', redirectTo:'', pathMatch:'full'},*/
 ];
 
 @NgModule({
