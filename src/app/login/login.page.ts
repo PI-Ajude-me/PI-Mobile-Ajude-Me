@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/service/login.service';
 import { PessoaService } from 'src/service/pessoa.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +15,13 @@ export class LoginPage implements OnInit {
   email: string = "";
 
 
-  constructor(public router:Router,private loginService: LoginService, private pessoaService: PessoaService) { }
+  constructor(public router:Router,private loginService: LoginService, private pessoaService: PessoaService, private alertController: AlertController) { }
 
   ngOnInit() {
   }
 
-  goDash(){
+
+  async goDash(){
     localStorage.removeItem("pi_ajuda_me_access_token");
 
     if(this.usuario.trim() !=="" , this.senha.trim() !==""){
@@ -32,10 +34,13 @@ export class LoginPage implements OnInit {
         }
       }); 
     }else{
-      alert("Usuario e Senha é Obrigatório!");
+      const myalert = await this.alertController.create({
+        message: 'Usuário e senha é obrigatório!',
+        buttons: ['OK'],
+      });
+      await myalert.present();
     }
 
-   
   }
 
   goRegister(){
@@ -45,5 +50,8 @@ export class LoginPage implements OnInit {
   goAcesso(){
     this.router.navigateByUrl('/acesso'); 
   }
+
+
+
 
 }
