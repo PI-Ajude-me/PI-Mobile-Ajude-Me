@@ -2,16 +2,25 @@ ion-title {color: rgba(128, 128, 128, 0.918); font-size: 1rem;}
 ion-header {padding: 1.1rem 1.48rem; opacity: .75;}
 ion-img {width: 6rem;}
 ion-header { display: flex; align-items: center; justify-content: space-between;}
-ion-item-option {--background: transparent; --justify-content: right;}
-ion-button {--background: transparent; opacity: .9; border-radius: .2rem;}
-.editar ion-button { color: #3880ff; border: 1px solid #3880ff; }
-.editar ion-icon {color: #3880ff; opacity: .9;}
-.excluir ion-button {color: #ff3849; border: 1px solid #ff3849;}
-ion-button {width: 8rem;}
+.editar {background: #fff; color: #7044FF; border: 1px solid #7044FF; padding: .5rem 2rem; margin: 0 0 0 1rem; border-radius: 5px;}
+.editar:hover {background: #7044FF; color: #fff;}
+.excluir {background: #fff; color: #ff3849; border: 1px solid #ff3849; padding: .5rem 2rem; margin: 0 0 0 1rem; border-radius: 5px;}
+.excluir:hover{background: #ff3849; color: #fff;}
 ion-fab-button {--background: #0ce8cb;}
+.modal-content ion-header {background: #0ce8cb21; color: #0bccb2;}
 ion-fab-button ion-icon {font-size: 2rem; font-weight: bold;}
 .add {color: #3880ff;}
+textarea {resize: none}
 .modal1, ion-list {z-index: 9999;}
 .modal1 img, .form-inline {width: 100%; padding: 0 1rem;}
-.form-inline button {width: 100%;}
-.btn-outline-warning {background-color: rgb(245, 228, 0); color: black;}
+.modal1 ion-content {--background: rgba(0, 0, 0, 0.685);}
+.form-inline button {padding: 1rem 0; border: 2px solid #0ce8cb ; color: #0bccb2; font-weight: bold; width: 100%;}
+.table {margin: .5rem 0;}
+.table thead {background-color: #FAFAFA; border-bottom: 5px solid #FAFAFA; border-top: 5px solid #FAFAFA; color: rgba(128, 128, 128, 0.918);}
+.table td, .table th {border-top: 1px dotted #7044ff86;}
+.data-evento {font-size: .75rem; width: 6.5rem; text-align: right; color: rgba(128, 128, 128, 0.918);}
+.desc-evento {font-size: .75rem;}
+.modal-header h5 {font-weight: bold; font-size: 1.4rem;}
+.bt-atualizar {background: #fff; border: 1px solid #7044FF; color: #7044FF;}
+.bt-fechar {background: #fff; border: 1px solid rgba(128, 128, 128, 0.288); color: rgba(128, 128, 128, 0.918);}
+.bt-adicionar {background: #0bccb2; color: #fff; border: 1px solid #0bccb2;font-weight: b;}

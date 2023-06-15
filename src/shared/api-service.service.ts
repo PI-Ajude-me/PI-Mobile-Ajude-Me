@@ -26,5 +26,21 @@ export class ApiServiceService {
   updateEventos(data:any, id:number){
     return this.http.put<any>(this.baseUrl+'/eventos/'+ id, data);
   }
+  
+  postAdmin(data:any){
+    return this.http.post<any>(this.baseUrl+'/admin', data);
+  }
+
+  getAllAdmin(){
+    return this.http.get<any>(this.baseUrl+'/admin');
+  }
+
+  deleteAdmin(id:any){
+    return this.http.delete<any>(this.baseUrl+'/admin/'+ id);
+  }
+
+  updateAdmin(data:any, id:number){
+    return this.http.put<any>(this.baseUrl+'/admin/'+ id, data);
+  }
 
 }

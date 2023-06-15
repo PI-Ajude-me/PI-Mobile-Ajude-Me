@@ -1,133 +1,89 @@
 <ion-header>
     <ion-img src="../../../assets/logoAzul.svg" alt=""></ion-img>
     <div>
-        <ion-title>Eventos</ion-title>
+        <ion-title>Informativo</ion-title>
     </div>
 </ion-header>
-<!--
-    <ion-content>
-    <ion-searchbar placeholder="Pesquisar">
-
-    </ion-searchbar>
-    <ion-list>
-        <ion-item-sliding>
-            <ion-item>
-                <ion-label>Título</ion-label>
-                <ion-label>Descrição</ion-label>
-            </ion-item>
-            <br>
-            <ion-item-option side="start">
-                <ion-item-option class="editar">
-                    <ion-button>
-                        Editar <ion-icon slot="icon-only" name="create"></ion-icon>
-                    </ion-button>
-                </ion-item-option>
-                <ion-item-option class="excluir">
-                    <ion-button>
-                        Excluir <ion-icon slot="icon-only" name="trash"></ion-icon>
-                    </ion-button>
-                    
-                </ion-item-option>
-            </ion-item-option>
-        </ion-item-sliding>
-    </ion-list>
-    
-            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button>
-            <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
-
-
-    
-</ion-content>
--->
-
 
 <ion-content class="modal1">
+<!--Criar-->
     <img src="../../../assets/eventos.svg">
-    <!--
-        <nav class="navbar navbar-light bg-light justify-content-between">
-            <a class="navbar-brand"></a>
-        </nav>
-    -->
 
     <form class="form-inline">
         <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#eventosModal" (click)="onAddClick()">Criar Evento</button>
     </form>
     
-  <!-- Modal -->
-  <div class="modal fade" id="eventosModal"  data-backdrop="false" tabindex="" role="dialog" aria-labelledby="eventosModalLabel" aria-hidden="true">
+<!-- Modal -->
+<ion-content class="modal fade" id="eventosModal"  data-backdrop="false" tabindex="" role="dialog" aria-labelledby="eventosModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="eventosModalLabel">Informativo de Eventos</h5>
+        <ion-header class="modal-header">
+          <h5 class="modal-title" id="eventosModalLabel">Informe aqui</h5>
+          
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
+        </ion-header>
         <div class="modal-body">
             <form [formGroup]="eventosForm">
                 <div class="mb-3">
-                    <label  class="form-label">Título</label>
-                    <input type="text" class="form-control"  placeholder="nome do evento" formControlName="tituloevento">
-                  </div>
+                    <label  class="form-label">Evento:</label>
+                    <input type="text" class="form-control"  placeholder="Tema" formControlName="tituloevento">
+                </div>
+
+                <div class="mb-3">
+                    <label  class="form-label">Data:</label>
+                    <input type="date" class="form-control" formControlName="dataevento">
+                </div>
     
-                  <div class="mb-3">
-                    <label  class="form-label">Descrição</label>
-                    <input type="text" class="form-control"  placeholder="sobre o evento" formControlName="descricaoevento">
-                  </div>
+                <div class="mb-3">
+                    <label  class="form-label">Descrição:</label>
+                    <textarea type="text" class="form-control" rows="6"  placeholder="Exemplo de descrição (Sobre o evento, local e hora, whatsapp ou rede social da ação.)" formControlName="descricaoevento">
+                    </textarea>
+                </div>
     
-                  
-                  <div class="mb-3">
-                    <label  class="form-label">Contato</label>
-                    <input type="number" class="form-control"  placeholder="telefone" formControlName="contatoevento">
-                  </div>
-    
-                  
-                  <div class="mb-3">
-                    <label  class="form-label">Local</label>
-                    <input type="text" class="form-control"  placeholder="endereço" formControlName="localevento">
-                  </div>
             </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close" (click)="reset()">Fechar</button>
-          <button type="button" class="btn btn-secondary" (click)="updateEventosDetail()" *ngIf="showUpdateBtn">Atualizar</button>
-          <button type="button" class="btn btn-primary" (click)="postEventosDetails()" *ngIf="showAddBtn">Adicionar</button>
-        </div>
+        <ion-footer class="modal-footer">
+          <button type="button" class="btn btn-secondary bt-fechar" data-dismiss="modal" id="close" (click)="reset()">Fechar</button>
+          <button type="button" class="btn btn-secondary bt-atualizar" (click)="updateEventosDetail()" *ngIf="showUpdateBtn">Atualizar</button>
+          <button type="button" class="btn btn-primary bt-adicionar" (click)="postEventosDetails()" *ngIf="showAddBtn">Adicionar</button>
+        </ion-footer>
       </div>
     </div>
-  </div>
-<ion-content>
+</ion-content>
 
-    <div class="container mt-2">
-        <table class="table table-hover table-striped table-responsive">
+<!--Tabela-->
+    <div class="table-responsive">
+        <table class="table">
             <thead>
                 <tr>
-                    <th>Título</th>
-                    <th>Descrição</th>
-                    <th>Contato</th>
-                    <th>Local</th>
-                    <th></th>
+                    <th class="titulo-evento">Eventos</th>
+                    <th>Saiba mais</th>
+    
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of eventosDetails">
-                    <td>{{item.tituloevento}}</td>
-                    <td>{{item.descricaoevento}}</td>
-                    <td>{{item.contatoevento}}</td>
-                    <td>{{item.localevento}}</td>
-                    <td>
-                       
-                        <button (click)="edit(item)" class="btn btn-outline-warning my-2 my-sm-0" data-toggle="modal" data-target="#eventosModal">Editar</button>
-                        <button (click)="deleteEventosDetail(item.id)" class="btn btn-sm btn-danger">Delete</button>
-                    </td>
+                <tr *ngFor="let e of eventosDetails">
+                <td>{{e.tituloevento}}</td>
+                <ion-accordion-group>
+                    <ion-accordion value="first">
+                      <ion-item slot="header" color="light">
+                        <ion-label><ion-icon name="ellipsis-horizontal-outline"></ion-icon></ion-label>
+                      </ion-item>
+                      <div class="ion-padding" slot="content">
+                        <td class="desc-evento">{{e.descricaoevento}}</td>
+                        <tr class="data-evento">{{e.dataevento}}</tr>
+                        <td class="bt-botoes">
+                            <button (click)="edit(e)" class="editar" data-toggle="modal" data-target="#eventosModal"><ion-icon name="create-outline"></ion-icon></button>
+                            <button (click)="deleteEventosDetail(e.id)" class="excluir" ><ion-icon name="trash-outline"></ion-icon></button>
+                        </td>
+                    </div>
+                    </ion-accordion>
+                </ion-accordion-group>
                 </tr>
             </tbody>
         </table>
-     </div> 
+    </div>
 
-</ion-content>
-  
 </ion-content>

@@ -1,86 +1,82 @@
 <ion-header>
   <ion-img src="../../../assets/logoAzul.svg" alt=""></ion-img>
-    <!--<ion-searchbar placeholder="Buscar"></ion-searchbar>-->
   <div>
-    <ion-title>Adm / Pedidos</ion-title>
+      <ion-title>Admin / Pedidos</ion-title>
   </div>
 </ion-header>
-<ion-content class="ion-padding">
- <!--
-<ion-list>
-    <ion-list-header>
-      <ion-label>Pedidos</ion-label>
-      <ion-button>Ver todos</ion-button>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Item 1</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Item 2</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Item 3</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Item 4</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Item 5</ion-label>
-    </ion-item>
+
+<ion-content class="modal1">
+<!--Criar-->
+<div class="admin-back"></div>
+
+  <form class="form-inline">
+      <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#adminModal" (click)="onAddAdminClick()">Administrar Situações</button>
+  </form>
+  
+<!-- Modal -->
+<ion-content class="modal fade" id="adminModal"  data-backdrop="false" tabindex="" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <ion-header class="modal-header">
+        <h5 class="modal-title" id="adminModalLabel">Verifique</h5>
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </ion-header>
+      <div class="modal-body">
+          <form [formGroup]="adminForm">
+            <div class="mb-3">
+              <ion-list>
+                <ion-item>
+                  <ion-select aria-label="Categoria" interface="action-sheet" placeholder="Selecione uma categoria" formControlName="selecaoadmin">
+                    <ion-select-option value="dentista">Dentista</ion-select-option>
+                    <ion-select-option value="alimentacao">Alimentação</ion-select-option>
+                    <ion-select-option value="moradia">Moradia</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </div>
+              
+            <div class="mb-3">
+                <label  class="form-label">Descrição:</label>
+                <textarea type="text" class="form-control" rows="6"  placeholder="" formControlName="descricaoadmin">
+                </textarea>
+            </div>
+          </form>
+      </div>
+      <ion-footer class="modal-footer">
+        <button type="button" class="btn btn-secondary bt-fechar" data-dismiss="modal" id="close" (click)="resetAdmin()">Fechar</button>
+        <button type="button" class="btn btn-secondary bt-atualizar" (click)="updateAdminDetail()" *ngIf="showUpdateBtnAdmin">Atualizar</button>
+        <button type="button" class="btn btn-primary bt-adicionar" (click)="postAdminDetails()" *ngIf="showAddBtnAdmin">Adicionar</button>
+      </ion-footer>
+    </div>
+  </div>
+</ion-content>
+
+  <ion-list>
+      <h1>Pedidos de Ajuda: </h1>
+      <ion-list-header>
+        <ion-label>Categoria</ion-label>
+        <ion-label>Descrição</ion-label>
+      </ion-list-header>
+    <ion-item-sliding *ngFor="let ad of adminDetails"> 
+      <ion-item >
+        <!--Aqui vem {descriçao} e {categoria}-->
+        <ion-label>{{ad.selecaoadmin}}</ion-label>
+        <ion-label>{{ad.descricaoadmin}}</ion-label>
+      </ion-item>
+  
+      <ion-item-options side="end">
+        <ion-item-option (click)="editAdmin(ad)"  data-toggle="modal" data-target="#adminModal">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="deleteAdminDetail(ad.id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+  
+    </ion-item-sliding>
   </ion-list>
-<br>
-  <h3>CRUD</h3> 
-  <ion-fab>
-    <ion-fab-button>
-      <ion-icon name="create"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="end">
-      <ion-fab-button>
-        <ion-icon name="pencil"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon name="warning"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon name="trash"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
- --> 
-
-
- <ion-list>
-  <h1>Pedidos de Ajuda: </h1>
-  <ion-list-header>
-    <ion-label>Descrição</ion-label>
-    <ion-label>Categoria</ion-label>
-  </ion-list-header>
-
-  <ion-item-sliding>
-    <!--
-          <ion-item-options side="start">
-      <ion-item-option color="success">
-        <ion-icon slot="icon-only" name="archive"></ion-icon>
-      </ion-item-option>
-    </ion-item-options>
-    -->
-
-    <ion-item>
-      <!--Aqui vem {descriçao} e {categoria}-->
-      <ion-thumbnail slot="start">
-      </ion-thumbnail>
-    </ion-item>
-
-    <ion-item-options side="end">
-      <ion-item-option>
-        <ion-icon slot="icon-only" name="heart"></ion-icon>
-      </ion-item-option>
-      <ion-item-option color="danger">
-        <ion-icon slot="icon-only" name="trash"></ion-icon>
-      </ion-item-option>
-    </ion-item-options>
-
-  </ion-item-sliding>
-</ion-list>
 
 </ion-content>

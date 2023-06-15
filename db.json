@@ -1,0 +1,67 @@
+{
+  "eventos": [
+    {
+      "id": 1,
+      "tituloevento": "Agasalhos",
+      "descricaoevento": "Arrecadação p/ pessoas em situação de rua. Igreja Adventista - Av. 24 de outubro - Vai acontecer as 15:00h.",
+      "dataevento": "2023-07-14"
+    },
+    {
+      "id": 2,
+      "tituloevento": "Adoção Pet",
+      "descricaoevento": "Gatos e Cachorros. Filhotes e adultos. Petshop, rua 13, setor faiçaville. Horário: 13:00",
+      "dataevento": "2023-06-21"
+    },
+    {
+      "id": 3,
+      "tituloevento": "Festa Junina",
+      "descricaoevento": "Festa Junina. Arrecadação p/ abrigo de crianças. Av. Goiânia 2, a partir das 19:00h. Instagram do evento: @eventofestajunina",
+      "dataevento": "2023-06-30"
+    },
+    {
+      "id": 4,
+      "tituloevento": "Corrida",
+      "descricaoevento": "Em prol da conscientização da violência contra a mulher. Arrecadando p/ CEVAM. Av 24 de outubro. Começo da corrida as 07:30h",
+      "dataevento": "2023-08-15"
+    },
+    {
+      "id": 5,
+      "tituloevento": "Sopão",
+      "descricaoevento": "Organização p/ entrega a moradores de rua. Av Independência. Horário: 20:00h",
+      "dataevento": "2023-06-25"
+    },
+    {
+      "id": 6,
+      "tituloevento": "Feirinha",
+      "descricaoevento": "Feira todo dia 1º de cada mês para arrecadação em favor das famílias de dependentes químicos. Praça Z. 18:00h",
+      "dataevento": "2023-07-01"
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "descricaoadmin": "Tratamento dentário para criança de 9 anos.",
+      "selecaoadmin": "moradia"
+    },
+    {
+      "id": 2,
+      "descricaoadmin": "Cestas básicas para meus vizinhos",
+      "selecaoadmin": "alimentacao"
+    },
+    {
+      "id": 3,
+      "descricaoadmin": "Preciso de telhas perdi tudo com a ultima chuva",
+      "selecaoadmin": "moradia"
+    },
+    {
+      "id": 4,
+      "descricaoadmin": "Cestas básicas para mim e meus meninos",
+      "selecaoadmin": "alimentacao"
+    },
+    {
+      "id": 6,
+      "descricaoadmin": null,
+      "selecaoadmin": null
+    }
+  ]
+}

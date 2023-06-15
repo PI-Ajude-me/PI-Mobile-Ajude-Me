@@ -1,25 +1,33 @@
 ion-title {color: rgba(128, 128, 128, 0.918); font-size: 1rem;}
+h1 {font-size: 1.3rem; padding: 1rem 0 1rem 1rem;}
+ion-label {padding: 1rem 0;}
 ion-header {padding: 1.1rem 1.48rem; opacity: .75;}
 ion-img {width: 6rem;}
-.menu-header {display: flex; align-items: center;}
-.bt-sair { padding-left: 12rem;}
-.bt-sair ion-icon {opacity: .75;}
-ion-header { 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+ion-header { display: flex; align-items: center; justify-content: space-between;}
+ion-list-header {background-color: #FAFAFA; color:rgba(128, 128, 128, 0.918); font-weight: bold; font-size: 1.2rem; opacity: .75;}
+ion-fab-button {--background: #0ce8cb;}
+.modal-content ion-header {background: #7044ff23; color: #7044FF;}
+ion-fab-button ion-icon {font-size: 2rem; font-weight: bold;}
+.add {color: #3880ff;}
+textarea {resize: none}
+.modal1, ion-list {z-index: 9999;}
+.modal1 img, .form-inline {width: 100%; padding: 0 1rem;}
+.modal1 ion-content {--background: rgba(0, 0, 0, 0.685);}
+.form-inline button {
+  padding: 1rem 0; 
+  border: 1px solid #ffffff2d ; 
+  color: #fff; font-weight: bold; 
+  width: 100%; 
+  background-color: #ffffff2d; 
+  box-shadow: 5px 10px 15px #204b9652;
 }
-ion-fab-button::part(native) {
-    background-color: var(--ion-color-primary-tint);
-    border-radius: 15px;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-    color: white;
-  }
-  
-  ion-fab-button::part(native):hover::after {
-    background-color: #3dc2ff;
-  }
-  
-  ion-fab-button::part(native):active::after {
-    background-color:#36abe0;
-  }
+.form-inline {background: #3880ff; opacity: .8; padding: 1rem 2rem;}
+.table {margin: .5rem 0;}
+.table thead {background-color: #FAFAFA; border-bottom: 5px solid #FAFAFA; border-top: 5px solid #FAFAFA; color: rgba(128, 128, 128, 0.918);}
+.table td, .table th {border-top: 1px dotted #7044ff86;}
+.data-evento {font-size: .75rem; width: 6.5rem; text-align: right; color: rgba(128, 128, 128, 0.918);}
+.desc-evento {font-size: .75rem;}
+.modal-header h5 {font-weight: bold; font-size: 1.4rem;}
+.bt-atualizar {background: #fff; border: 1px solid #7044FF; color: #7044FF;}
+.bt-fechar {background: #fff; border: 1px solid rgba(128, 128, 128, 0.918); color: rgba(128, 128, 128, 0.918);}
+.bt-adicionar {background: #7044FF; color: #fff; border: 1px solid #7044FF;}

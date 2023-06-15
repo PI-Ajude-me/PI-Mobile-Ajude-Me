@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from 'src/shared/auth-guard-service';
 import { EventosPageModule } from './dashboard/eventos/eventos.module';
+import { AdminPageModule } from './dashboard/admin/admin.module';
 
 
 const routes: Routes = [

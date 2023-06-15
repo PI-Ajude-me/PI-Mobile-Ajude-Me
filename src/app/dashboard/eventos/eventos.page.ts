@@ -27,8 +27,7 @@ export class EventosPage implements OnInit {
       id:[''],
       tituloevento:[''],
       descricaoevento:[''],
-      contatoevento:[''],
-      localevento:[]
+      dataevento:['']
     });
   }
 
@@ -73,8 +72,7 @@ export class EventosPage implements OnInit {
     this.eventosForm.controls['id'].setValue(evento.id);
     this.eventosForm.controls['tituloevento'].setValue(evento.tituloevento);
     this.eventosForm.controls['descricaoevento'].setValue(evento.descricaoevento);
-    this.eventosForm.controls['contatoevento'].setValue(evento.contatoevento);
-    this.eventosForm.controls['localevento'].setValue(evento.localevento);
+    this.eventosForm.controls['dataevento'].setValue(evento.dataevento);
   }
 
   updateEventosDetail(){
@@ -95,5 +93,6 @@ export class EventosPage implements OnInit {
     this.eventosForm.reset();
     this.eventosModal={};
   }
+
 
 }
