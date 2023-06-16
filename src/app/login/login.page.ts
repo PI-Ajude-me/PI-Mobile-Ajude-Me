@@ -51,7 +51,4 @@ export class LoginPage implements OnInit {
     this.router.navigateByUrl('/acesso'); 
   }
 
-
-
-
 }

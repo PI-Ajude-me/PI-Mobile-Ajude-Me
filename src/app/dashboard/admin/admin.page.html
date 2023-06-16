@@ -8,10 +8,12 @@
 <ion-content class="modal1">
 <!--Criar-->
 <div class="admin-back"></div>
-
-  <form class="form-inline">
+ <!--
+   <form class="form-inline">
       <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#adminModal" (click)="onAddAdminClick()">Administrar Situações</button>
   </form>
+ -->
+ 
   
 <!-- Modal -->
 <ion-content class="modal fade" id="adminModal"  data-backdrop="false" tabindex="" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
@@ -30,9 +32,13 @@
               <ion-list>
                 <ion-item>
                   <ion-select aria-label="Categoria" interface="action-sheet" placeholder="Selecione uma categoria" formControlName="selecaoadmin">
-                    <ion-select-option value="dentista">Dentista</ion-select-option>
-                    <ion-select-option value="alimentacao">Alimentação</ion-select-option>
-                    <ion-select-option value="moradia">Moradia</ion-select-option>
+                    <ion-select-option value="saude">Saúde</ion-select-option>
+                    <ion-select-option value="alimentar">Alimentar</ion-select-option>
+                    <ion-select-option value="habitacional">Habitacional</ion-select-option>
+                    <ion-select-option value="vestimenta">Vestimenta</ion-select-option>
+                    <ion-select-option value="veterinaria">Veterinária</ion-select-option>
+                    <ion-select-option value="moveis">Móveis</ion-select-option>
+                    <ion-select-option value="outros">Outros</ion-select-option>
                   </ion-select>
                 </ion-item>
               </ion-list>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiServiceService } from 'src/shared/api-service.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-eventos',
@@ -15,7 +16,7 @@ export class EventosPage implements OnInit {
   showAddBtn:boolean=true;
   showUpdateBtn:boolean=false;
 
-  constructor(private api: ApiServiceService, private fb: FormBuilder) { }
+  constructor(private api: ApiServiceService, private fb: FormBuilder, private alertController: AlertController) { }
 
   ngOnInit() {
     this.getAllEventosDetails();
@@ -44,27 +45,35 @@ export class EventosPage implements OnInit {
     this.showUpdateBtn=false;
   }
 
-  postEventosDetails(){
+  postEventosDetails() {
     this.eventosModal = Object.assign({}, this.eventosForm.value);
-    this.api.postEventos(this.eventosModal).subscribe(res=>{
-      alert("Evento adicionado com sucesso!");
-      let close = document.getElementById('close');
-      close?.click();
-      this.eventosForm.reset();
-      this.getAllEventosDetails();
-    }, err=>{
-      alert("Erro não foi adicionado");
-    })
+    this.api.postEventos(this.eventosModal).subscribe(
+      res => {
+        this.alertEventos('Evento adicionado com sucesso!');
+        let close = document.getElementById('close');
+        close?.click();
+        this.eventosForm.reset();
+        this.getAllEventosDetails();
+      },
+      err => {
+        this.alertEventos('Erro: não foi possível adicionar o evento');
+      }
+    );
   }
 
-  deleteEventosDetail(id:any){
-    this.api.deleteEventos(id).subscribe(res=>{
-      alert("Evento deletado com sucesso");
-      this.getAllEventosDetails();
-    }, err=>{
-      alert ("Erro ao deletar");
-    })
+
+  deleteEventosDetail(id: any) {
+    this.api.deleteEventos(id).subscribe(
+      res => {
+        this.alertEventos('Evento deletado com sucesso');
+        this.getAllEventosDetails();
+      },
+      err => {
+        this.alertEventos('Erro ao deletar');
+      }
+    );
   }
+  
 
   edit(evento:any){
     this.showAddBtn=false;
@@ -78,21 +87,32 @@ export class EventosPage implements OnInit {
   updateEventosDetail(){
     this.eventosModal = Object.assign({}, this.eventosForm.value);
     this.api.updateEventos(this.eventosModal, this.eventosModal.id).subscribe(res=>{
-      alert("Evento atualizado com sucesso");
+      this.alertEventos("Evento atualizado com sucesso");
       let close = document.getElementById('close');
       close?.click();
       this.getAllEventosDetails();
       this.eventosForm.reset();
       this.eventosModal={}
     }, err=>{
-      alert ("Erro ao atualizar");
+      this.alertEventos("Erro ao atualizar");
     })
   }
+
 
   reset(){
     this.eventosForm.reset();
     this.eventosModal={};
   }
 
+
+  async alertEventos(message: string) {
+    const alert = await this.alertController.create({
+      header: '',
+      message: message,
+      buttons: ['OK']
+    });
+  
+    await alert.present();
+  }
 
 }

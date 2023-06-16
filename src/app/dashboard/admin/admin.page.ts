@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiServiceService } from 'src/shared/api-service.service';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.page.html',
@@ -15,7 +15,7 @@ export class AdminPage implements OnInit {
   showAddBtnAdmin:boolean=true;
   showUpdateBtnAdmin:boolean=false;
 
-  constructor(private api: ApiServiceService, private fb: FormBuilder) { }
+  constructor(private api: ApiServiceService, private fb: FormBuilder, private alertController: AlertController) { }
 
   ngOnInit() {
     this.getAllAdminDetails();
@@ -46,22 +46,23 @@ export class AdminPage implements OnInit {
   postAdminDetails(){
     this.adminModal = Object.assign({}, this.adminForm.value);
     this.api.postAdmin(this.adminModal).subscribe(res=>{
-      alert("Pedido adicionado com sucesso!");
+      this.alertAdmin("Pedido adicionado com sucesso!");
       let close = document.getElementById('close');
       close?.click();
       this.adminForm.reset();
       this.getAllAdminDetails();
     }, err=>{
-      alert("Erro não foi adicionado");
+      this.alertAdmin("Erro não foi adicionado");
     })
   }
 
+
   deleteAdminDetail(id:any){
     this.api.deleteAdmin(id).subscribe(res=>{
-      alert("Pedido deletado com sucesso");
+      this.alertAdmin("Pedido deletado com sucesso");
       this.getAllAdminDetails();
     }, err=>{
-      alert ("Erro ao deletar");
+      this.alertAdmin("Erro ao deletar");
     })
   }
 
@@ -76,14 +77,14 @@ export class AdminPage implements OnInit {
   updateAdminDetail(){
     this.adminModal = Object.assign({}, this.adminForm.value);
     this.api.updateAdmin(this.adminModal, this.adminModal.id).subscribe(res=>{
-      alert("Pedido atualizado com sucesso");
+      this.alertAdmin("Pedido atualizado com sucesso");
       let close = document.getElementById('close');
       close?.click();
       this.getAllAdminDetails();
       this.adminForm.reset();
       this.adminModal={}
     }, err=>{
-      alert ("Erro ao atualizar");
+      this.alertAdmin("Erro ao atualizar");
     })
   }
 
@@ -96,6 +97,16 @@ export class AdminPage implements OnInit {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+
+  async alertAdmin(message: string) {
+    const alert = await this.alertController.create({
+      header: '',
+      message: message,
+      buttons: ['OK']
+    });
+  
+    await alert.present();
   }
 
 }

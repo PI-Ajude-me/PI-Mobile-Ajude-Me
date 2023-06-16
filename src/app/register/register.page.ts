@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { PessoaCategoria } from 'src/model/enums/pessoacategoria';
 import { PessoaFisica, PessoaJurica } from 'src/model/pessoa';
 import { PessoaService } from 'src/service/pessoa.service';
-
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterPage implements OnInit {
   pessoafisica: PessoaFisica = new PessoaFisica();
   pessoajuridica: PessoaJurica = new PessoaJurica();
 
-  constructor(public router: Router, private pessoaService: PessoaService) { }
+  constructor(public router: Router, private pessoaService: PessoaService, private alertController: AlertController) { }
 
   ngOnInit() {
 
@@ -25,26 +25,35 @@ export class RegisterPage implements OnInit {
     if (this.tipodecadastro === 'CPF') {
       this.pessoafisica.pessoacategoria = PessoaCategoria.ADMIN
       this.pessoaService.savePessoaPf(this.pessoafisica).subscribe(res => {
-        alert("Admininstrador PF Salvo");
+        this.alertgoDash("Admininstrador PF Salvo");
         this.router.navigateByUrl('/login')
       }, err => {
-        alert("Erro no Registro");
+        this.alertgoDash("Erro no Registro");
         this.router.navigateByUrl('/register')
       });
     }
     if (this.tipodecadastro === 'CNPJ') {
       this.pessoajuridica.pessoacategoria = PessoaCategoria.ADMIN
       this.pessoaService.savePessoaPj(this.pessoajuridica).subscribe(res => {
-        alert("Admininstrador PJ Salvo");
+        this.alertgoDash("Admininstrador PJ Salvo");
         this.router.navigateByUrl('/login')
       }, err => {
-        alert("Erro no Registro");
+        this.alertgoDash("Erro no Registro");
         this.router.navigateByUrl('/register')
       });
     }
 
   }
 
+  async alertgoDash(message: string) {
+    const alert = await this.alertController.create({
+      header: '',
+      message: message,
+      buttons: ['OK']
+    });
+  
+    await alert.present();
+  }
 
   goLogin() {
     this.router.navigateByUrl('/login')
