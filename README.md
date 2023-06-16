@@ -7,3 +7,10 @@ Node: 18.16.0
 Package Manager: npm 9.6.5
 
 Diretório: app-ajude-mobile.
+
+Instalar:
+npm install -g json-server
+npm install swiper@latest
+
+Acessar o Json-Server
+json-server --watch db.json 
