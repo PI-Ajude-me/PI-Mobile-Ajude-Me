@@ -64,19 +64,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let e of eventosDetails">
-                <td>{{e.tituloevento}}</td>
+                <tr *ngFor="let evento of eventos">
+                <td>{{evento.titulo}}</td>
                 <ion-accordion-group>
                     <ion-accordion value="first">
                       <ion-item slot="header" color="light">
                         <ion-label><ion-icon name="ellipsis-horizontal-outline"></ion-icon></ion-label>
                       </ion-item>
                       <div class="ion-padding" slot="content">
-                        <td class="desc-evento">{{e.descricaoevento}}</td>
-                        <tr class="data-evento">{{e.dataevento}}</tr>
+                        <td class="desc-evento">{{evento.descricao}}</td>
+                        <tr class="data-evento">{{evento.data | date: 'dd/MM/yyyy'}}</tr>
                         <td class="bt-botoes">
-                            <button (click)="edit(e)" class="editar" data-toggle="modal" data-target="#eventosModal"><ion-icon name="create-outline"></ion-icon></button>
-                            <button (click)="deleteEventosDetail(e.id)" class="excluir" ><ion-icon name="trash-outline"></ion-icon></button>
+                            <button (click)="edit(evento)" class="editar" data-toggle="modal" data-target="#eventosModal"><ion-icon name="create-outline"></ion-icon></button>
+                            <button (click)="deleteEventosDetail(evento)" class="excluir" ><ion-icon name="trash-outline"></ion-icon></button>
                         </td>
                     </div>
                     </ion-accordion>

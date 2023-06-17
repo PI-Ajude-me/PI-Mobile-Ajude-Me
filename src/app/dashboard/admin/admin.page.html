@@ -13,8 +13,6 @@
       <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#adminModal" (click)="onAddAdminClick()">Administrar Situações</button>
   </form>
  -->
- 
-  
 <!-- Modal -->
 <ion-content class="modal fade" id="adminModal"  data-backdrop="false" tabindex="" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -32,13 +30,13 @@
               <ion-list>
                 <ion-item>
                   <ion-select aria-label="Categoria" interface="action-sheet" placeholder="Selecione uma categoria" formControlName="selecaoadmin">
-                    <ion-select-option value="saude">Saúde</ion-select-option>
-                    <ion-select-option value="alimentar">Alimentar</ion-select-option>
-                    <ion-select-option value="habitacional">Habitacional</ion-select-option>
-                    <ion-select-option value="vestimenta">Vestimenta</ion-select-option>
-                    <ion-select-option value="veterinaria">Veterinária</ion-select-option>
-                    <ion-select-option value="moveis">Móveis</ion-select-option>
-                    <ion-select-option value="outros">Outros</ion-select-option>
+                    <ion-select-option value=SAUDE>Saúde</ion-select-option>
+                    <ion-select-option value=ALIMENTAR>Alimentar</ion-select-option>
+                    <ion-select-option value=HABITACIONAL>Habitacional</ion-select-option>
+                    <ion-select-option value=VESTIMENTA>Vestimenta</ion-select-option>
+                    <ion-select-option value=VETERINARIA>Veterinária</ion-select-option>
+                    <ion-select-option value=MOVEIS>Móveis</ion-select-option>
+                    <ion-select-option value=OUTROS>Outros</ion-select-option>
                   </ion-select>
                 </ion-item>
               </ion-list>
@@ -54,7 +52,7 @@
       <ion-footer class="modal-footer">
         <button type="button" class="btn btn-secondary bt-fechar" data-dismiss="modal" id="close" (click)="resetAdmin()">Fechar</button>
         <button type="button" class="btn btn-secondary bt-atualizar" (click)="updateAdminDetail()" *ngIf="showUpdateBtnAdmin">Atualizar</button>
-        <button type="button" class="btn btn-primary bt-adicionar" (click)="postAdminDetails()" *ngIf="showAddBtnAdmin">Adicionar</button>
+        <!-- <button type="button" class="btn btn-primary bt-adicionar" (click)="postAdminDetails()" *ngIf="showAddBtnAdmin">Adicionar</button> -->
       </ion-footer>
     </div>
   </div>
@@ -66,18 +64,18 @@
         <ion-label>Categoria</ion-label>
         <ion-label>Descrição</ion-label>
       </ion-list-header>
-    <ion-item-sliding *ngFor="let ad of adminDetails"> 
+    <ion-item-sliding *ngFor="let doacao of doacoes"> 
       <ion-item >
         <!--Aqui vem {descriçao} e {categoria}-->
-        <ion-label>{{ad.selecaoadmin}}</ion-label>
-        <ion-label>{{ad.descricaoadmin}}</ion-label>
+        <ion-label>{{doacao.doacaocategoria}}</ion-label>
+        <ion-label>{{doacao.descricao}}</ion-label>
       </ion-item>
   
       <ion-item-options side="end">
-        <ion-item-option (click)="editAdmin(ad)"  data-toggle="modal" data-target="#adminModal">
+        <ion-item-option (click)="editAdmin(doacao)"  data-toggle="modal" data-target="#adminModal">
           <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="danger" (click)="deleteAdminDetail(ad.id)">
+        <ion-item-option color="danger" (click)="deleteAdminDetail(doacao)">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>

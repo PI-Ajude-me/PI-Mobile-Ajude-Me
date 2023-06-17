@@ -20,6 +20,9 @@ export class HomeTabPage implements OnInit {
   }
 
   goHome(){
+    localStorage.removeItem("pi_ajuda_me_access_token");
+    localStorage.removeItem("pessoafisica");
+    localStorage.removeItem("pessoajuridica");
     this.router.navigateByUrl('/home');
   }
 

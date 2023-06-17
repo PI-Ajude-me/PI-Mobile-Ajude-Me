@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ApiServiceService } from 'src/shared/api-service.service';
 import { AlertController } from '@ionic/angular';
+import { DoacaoService } from 'src/service/doacao.service';
+import { Doacao } from 'src/model/doacao';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.page.html',
@@ -12,85 +14,105 @@ export class AdminPage implements OnInit {
   adminForm!: FormGroup;
   adminModal: any;
   adminDetails: any;
-  showAddBtnAdmin:boolean=true;
-  showUpdateBtnAdmin:boolean=false;
+  showAddBtnAdmin: boolean = true;
+  showUpdateBtnAdmin: boolean = false;
 
-  constructor(private api: ApiServiceService, private fb: FormBuilder, private alertController: AlertController) { }
+  doacao: Doacao = new Doacao();
+  doacoes?: Doacao[];
+
+  constructor(private api: ApiServiceService, private fb: FormBuilder, private alertController: AlertController, private apiDoacao: DoacaoService) { }
 
   ngOnInit() {
     this.getAllAdminDetails();
     this.createAdminForm();
   }
 
-  createAdminForm(){
+  createAdminForm() {
     this.adminForm = this.fb.group({
-      id:[''],
-      descricaoadmin:[''],
-      selecaoadmin:['']
+      id: new FormControl(''),
+      descricaoadmin: new FormControl(''),
+      selecaoadmin: new FormControl(''),
     });
   }
 
-  getAllAdminDetails(){
-    this.api.getAllAdmin().subscribe(res=>{
-      this.adminDetails = res;
-    }, err=> {
-      console.log(err);
+  getAllAdminDetails() {
+    this.apiDoacao.getDoacoes().subscribe(res => {
+      this.doacoes = res;
+    }, err => {
+      this.alertAdmin("Erro ao Obter as Doações");
     })
   }
 
-  onAddAdminClick(){
-    this.showAddBtnAdmin=true;
-    this.showUpdateBtnAdmin=false;
+  onAddAdminClick() {
+    this.showAddBtnAdmin = true;
+    this.showUpdateBtnAdmin = false;
   }
 
-  postAdminDetails(){
-    this.adminModal = Object.assign({}, this.adminForm.value);
-    this.api.postAdmin(this.adminModal).subscribe(res=>{
-      this.alertAdmin("Pedido adicionado com sucesso!");
-      let close = document.getElementById('close');
-      close?.click();
-      this.adminForm.reset();
-      this.getAllAdminDetails();
-    }, err=>{
-      this.alertAdmin("Erro não foi adicionado");
-    })
+  get id() {
+    return this.adminForm.get('id')!;
+  }
+  get descricaoadmin() {
+    return this.adminForm.get('descricaoadmin')!;
+  }
+  get selecaoadmin() {
+    return this.adminForm.get('selecaoadmin')!;
   }
 
+  //postAdminDetails(){
+  //this.adminModal = Object.assign({}, this.adminForm.value);
+  //this.api.postAdmin(this.adminModal).subscribe(res=>{
+  //this.alertAdmin("Pedido adicionado com sucesso!");
+  //let close = document.getElementById('close');
+  //close?.click();
+  //this.adminForm.reset();
+  //this.getAllAdminDetails();
+  //}, err=>{
+  //this.alertAdmin("Erro não foi adicionado");
+  //})
+  //}
 
-  deleteAdminDetail(id:any){
-    this.api.deleteAdmin(id).subscribe(res=>{
+
+  deleteAdminDetail(doacao: Doacao) {
+    this.apiDoacao.deleteDoacao(doacao).subscribe(res => {
       this.alertAdmin("Pedido deletado com sucesso");
       this.getAllAdminDetails();
-    }, err=>{
+    }, err => {
       this.alertAdmin("Erro ao deletar");
     })
   }
 
-  editAdmin(admin:any){
-    this.showAddBtnAdmin=false;
-    this.showUpdateBtnAdmin=true;
-    this.adminForm.controls['id'].setValue(admin.id);
-    this.adminForm.controls['descricaoadmin'].setValue(admin.descricaoadmin);
-    this.adminForm.controls['selecaoadmin'].setValue(admin.selecaoadmin);
+  editAdmin(doacao: Doacao) {
+    this.showAddBtnAdmin = false;
+    this.showUpdateBtnAdmin = true;
+    this.apiDoacao.getDoacaoById(doacao.id).subscribe(res => {
+      this.doacao = res;
+      this.adminForm.controls['id'].setValue(doacao.id);
+      this.adminForm.controls['descricaoadmin'].setValue(doacao.descricao);
+      this.adminForm.controls['selecaoadmin'].setValue(doacao.doacaocategoria);
+    });
   }
 
-  updateAdminDetail(){
+  updateAdminDetail() {
+    this.doacao.descricao = this.descricaoadmin.value;
+    this.doacao.doacaocategoria = this.selecaoadmin.value;
+    this.doacao.data = new Date;
     this.adminModal = Object.assign({}, this.adminForm.value);
-    this.api.updateAdmin(this.adminModal, this.adminModal.id).subscribe(res=>{
+    this.apiDoacao.updateDoacao(this.doacao).subscribe(res => {
       this.alertAdmin("Pedido atualizado com sucesso");
       let close = document.getElementById('close');
       close?.click();
       this.getAllAdminDetails();
       this.adminForm.reset();
-      this.adminModal={}
-    }, err=>{
+      this.adminModal = {}
+    }, err => {
       this.alertAdmin("Erro ao atualizar");
     })
   }
 
-  resetAdmin(){
+  resetAdmin() {
     this.adminForm.reset();
-    this.adminModal={};
+    this.adminModal = {};
+    this.locationreload();
   }
 
   isModalOpen = false;
@@ -105,8 +127,13 @@ export class AdminPage implements OnInit {
       message: message,
       buttons: ['OK']
     });
-  
+
     await alert.present();
+  }
+
+  locationreload() {
+    // To reload the entire page from the server
+    location.reload();
   }
 
 }
